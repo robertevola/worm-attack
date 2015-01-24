@@ -13,17 +13,20 @@ public class Worm : MonoBehaviour
 	private WormHead headPiece;
     private Vector2 moveDirection;
     public Vector2 baseMovementSpeed;
-    public Vector2 currentVelocity;
     public bool isDigging;
 
-    public int health;
+    public int startingHealth = 100;
+	private int currentHealth;
     public bool isAlive = true;
 
+	public bool wormyControlsEnabled = false;
 	// Use this for initialization
 	void Start () 
     {
 		headPiece = transform.FindChild("Head").gameObject.GetComponent<WormHead>();
 		tailPiece = transform.FindChild("Tail").gameObject.GetComponent<WormPiece>();
+
+		currentHealth = startingHealth;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +35,7 @@ public class Worm : MonoBehaviour
         UpdateMoveDirection();
         UpdateDigState();
 
-        headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
+		headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
         headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
 
 		if(Input.GetKeyDown(KeyCode.Space))
@@ -59,19 +62,73 @@ public class Worm : MonoBehaviour
 		}
 
 	}
-
+	public void SetWormyState(bool state)
+	{
+		wormyControlsEnabled = state;
+	}
 
     private void UpdateMoveDirection()
     {
-        if(movementStick.InUse)
-        { //Player is currently interacting with the stick
-            moveDirection.x = movementStick.Axis.x;
-            moveDirection.y = movementStick.Axis.y >= 0.0f ? movementStick.Axis.y + 1.0f : Mathf.Clamp(1.0f + movementStick.Axis.y, 0.5f, 1.0f);
-        }
-        else
-        {
-            moveDirection = Vector2.up; //Player moves forward at base speed when no movement input is given
-        }
+		if(movementStick.InUse)
+		{
+			if(wormyControlsEnabled)
+			{
+				if(movementStick.InUse)
+				{ //Player is currently interacting with the stick
+					moveDirection.x = movementStick.Axis.x;
+					moveDirection.y = movementStick.Axis.y >= 0.0f ? movementStick.Axis.y + 1.0f : Mathf.Clamp(1.0f + movementStick.Axis.y, 0.5f, 1.0f);
+				}
+				else
+				{
+					moveDirection = Vector2.up; //Player moves forward at base speed when no movement input is given
+				}
+			}
+			else
+			{
+				if(movementStick.InUse)
+				{ //Player is currently interacting with the stick
+					Vector2 globalMoveDir = headPiece.transform.InverseTransformDirection(movementStick.Axis.x, movementStick.Axis.y, 0.0f);
+					float angleBetween = Vector2.Angle(new Vector2(headPiece.transform.up.x, headPiece.transform.up.y), movementStick.Axis);
+
+					moveDirection.x = globalMoveDir.x;
+					moveDirection.y = globalMoveDir.y >= 0.0f ? globalMoveDir.y + 1.0f : Mathf.Clamp(1.0f + globalMoveDir.y, 0.5f, 1.0f);
+				}
+			}
+		}
+		else
+		{
+				moveDirection = Vector2.up;
+		}
+
+
+//		if(wormyControlsEnabled)
+//		{
+//	        
+//		}else
+//		{
+////			float angleBetween = Vector2.Angle(new Vector2(headPiece.transform.up.x, headPiece.transform.up.y), movementStick.Axis);
+////
+////			float dif = Vector2.Dot(movementStick.Axis, new Vector2(headPiece.transform.up.x, headPiece.transform.up.y)); 
+////
+////			//Debug.Log ("Dot " + dif);
+////
+////			//headPiece.transform.TransformDirection(new Vector3(movementStick.Axis.x, movementStick.Axis.y));
+////			Vector3 turn = headPiece.transform.TransformDirection(new Vector3(movementStick.Axis.x, movementStick.Axis.y));
+////
+////			moveDirection.x = turn.x;
+////			moveDirection.y = Vector2.Dot (new Vector2(headPiece.transform.up.x, headPiece.transform.up.y),movementStick.Axis);
+//
+//
+//			}
+//			else
+//			{
+//				moveDirection = new Vector2(transform.up.x, transform.up.y); //Player moves forward at base speed when no movement input is given
+//			}
+//
+//
+//		}
+
+
     }
 
     private void UpdateDigState()
@@ -127,13 +184,22 @@ public class Worm : MonoBehaviour
 		//Animate worm
     }
 
-    private void ApplyDamage(int damage)
+    public void ApplyDamage(int damage)
     {
-        health -= damage;
-        if(health <= 0)
+        currentHealth -= damage;
+		if(currentHealth <= 0)
         {
-            health = 0;
+			currentHealth = 0;
             isAlive = false;
         }
     }
+
+	public void ApplyHeal(int heal)
+	{
+		currentHealth += heal;
+		if(currentHealth >= startingHealth)
+		{
+			currentHealth = startingHealth;
+		}
+	}
 }
