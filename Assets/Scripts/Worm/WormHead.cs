@@ -11,7 +11,7 @@ public class WormHead : WormPiece {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		transform.Translate(this.transform.up * speed, Space.World);
 	}
 	void OnTriggerEnter(Collider col)
