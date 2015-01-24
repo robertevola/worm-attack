@@ -6,6 +6,7 @@ public class Worm : MonoBehaviour
     //Input
     public Joystick movementStick;
     public Button digButton;
+	public GameObject WormBodyPiece;
 
     private WormPiece tailPiece;
 	private WormHead headPiece;
@@ -33,6 +34,10 @@ public class Worm : MonoBehaviour
         headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
         headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
 
+		if(Input.GetKeyDown(KeyCode.Space))
+		{
+			AddBodyChunk();
+		}
 
 	}
 
@@ -41,7 +46,7 @@ public class Worm : MonoBehaviour
         if(movementStick.InUse)
         { //Player is currently interacting with the stick
             moveDirection.x = movementStick.Axis.x;
-            moveDirection.y = movementStick.Axis.y >= 0.0f ? movementStick.Axis.y + 1.0f : Mathf.Clamp(1.0f + movementStick.Axis.y, 0.1f, 1.0f);
+            moveDirection.y = movementStick.Axis.y >= 0.0f ? movementStick.Axis.y + 1.0f : Mathf.Clamp(1.0f + movementStick.Axis.y, 0.5f, 1.0f);
         }
         else
         {
@@ -69,6 +74,17 @@ public class Worm : MonoBehaviour
         }
         
     }
+	public void AddBodyChunk()
+	{
+		Vector3 p = tailPiece.previous.transform.position;
+		p.z += 0.001f;
+		GameObject b = Instantiate(WormBodyPiece, p, tailPiece.previous.transform.rotation) as GameObject;
+		b.transform.parent = this.transform;
+		WormPiece wp = b.GetComponent<WormPiece>();
+		wp.previous = tailPiece.previous;
+		wp.previous.next = wp;
+		tailPiece.previous = wp;
+	}
 
     private void DigDown()
     {
