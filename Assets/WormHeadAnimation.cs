@@ -12,7 +12,7 @@ public class WormHeadAnimation : MonoBehaviour {
 	SpriteRenderer sr;
 	void Start () {
 		sr = GetComponent<SpriteRenderer>();
-		sr.sprite = Frames[1];
+
 		StartCoroutine(WormAnima());
 	}
 	IEnumerator WormAnima()

@@ -2,13 +2,15 @@
 using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class WormPiece : MonoBehaviour 
+public class WormPiece : WormEntity 
 {
     private SpriteRenderer spriteRenderer;
-    public WormPiece next, previous;
+
 	public float radius = 45.0f; 
 	
-    public bool isUnderground;
+  	
+
+	float holeEntryScale = 2f;
 
 	// Use this for initialization
 	void Start () 
@@ -31,9 +33,27 @@ public class WormPiece : MonoBehaviour
 				var angle = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
 				transform.rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
 
-				transform.Translate(dif.normalized * (dif.magnitude - radius), Space.World);
+				transform.Translate(dif.normalized * Mathf.Lerp(0,(dif.magnitude - radius),0.25f), Space.World);
+				//transform.Translate(dif.normalized * (dif.magnitude - radius), Space.World);
 			}
 		}
+//		if(base.isUnderground)
+//		{
+//			//Debug.Log ("BOOYEAH");
+//			Vector3 holeScale = new Vector3();
+//			holeScale.x = Mathf.Lerp(transform.localScale.x, holeEntryScale, 0.75f);
+//			holeScale.y = Mathf.Lerp(transform.localScale.y, holeEntryScale, 0.75f);
+//			holeScale.z = Mathf.Lerp(transform.localScale.z, holeEntryScale, 0.75f);
+//			transform.localScale = holeScale;
+//		}else
+//		{
+//			Vector3 holeScale = new Vector3();
+//			holeScale.x = Mathf.Lerp(transform.localScale.x, 3.0f, 0.75f);
+//			holeScale.y = Mathf.Lerp(transform.localScale.y, 3.0f, 0.75f);
+//			holeScale.z = Mathf.Lerp(transform.localScale.z, 3.0f, 0.75f);
+//			transform.localScale = holeScale;
+//		}
+
 	}
 
     public void SetSprite(Sprite sprite)

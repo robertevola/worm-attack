@@ -7,6 +7,7 @@ public class Worm : MonoBehaviour
     public Joystick movementStick;
     public Button digButton;
 	public GameObject WormBodyPiece;
+	public GameObject HoleGO;
 
     private WormPiece tailPiece;
 	private WormHead headPiece;
@@ -38,8 +39,27 @@ public class Worm : MonoBehaviour
 		{
 			AddBodyChunk();
 		}
+		if(Input.GetKeyDown(KeyCode.LeftControl))
+		{
+			if(isDigging)
+			{
+
+				isDigging = false;
+				//Debug.Log("isDigging "+isDigging);
+				Surface();
+			}
+			else
+			{	
+
+				isDigging = true;
+				//Debug.Log("isDigging "+isDigging);
+				DigDown();
+			}
+
+		}
 
 	}
+
 
     private void UpdateMoveDirection()
     {
@@ -56,22 +76,22 @@ public class Worm : MonoBehaviour
 
     private void UpdateDigState()
     {
-        if(!isDigging)
-        {
-            if (digButton.IsPressed)
-            {
-                isDigging = true;
-                DigDown();
-            }
-        }
-        else
-        {
-            if(!digButton.IsHeldDown)
-            {
-                isDigging = false;
-                Surface();
-            }
-        }
+//        if(!isDigging)
+//        {
+//            if (digButton.IsPressed)
+//            {
+//                isDigging = true;
+//                DigDown();
+//            }
+//        }
+//        else
+//        {
+//            if(!digButton.IsHeldDown)
+//            {
+//                isDigging = false;
+//                Surface();
+//            }
+//        }
         
     }
 	public void AddBodyChunk()
@@ -82,18 +102,29 @@ public class Worm : MonoBehaviour
 		b.transform.parent = this.transform;
 		WormPiece wp = b.GetComponent<WormPiece>();
 		wp.previous = tailPiece.previous;
-		wp.previous.next = wp;
+		((WormPiece)wp).previous.next = wp;
 		tailPiece.previous = wp;
+		wp.next = tailPiece;
 	}
 
     private void DigDown()
     {
-
+		GameObject go = Instantiate(HoleGO, headPiece.transform.position, Quaternion.identity) as GameObject;
+		HoleScript HS = go.GetComponent<HoleScript>();
+		HS.next = headPiece;
+		headPiece.next.previous = HS;
+		HS.Entry = true;
+		//Animate worm
     }
 
     private void Surface()
     {
-
+		GameObject go = Instantiate(HoleGO, headPiece.transform.position, Quaternion.identity) as GameObject;
+		HoleScript HS = go.GetComponent<HoleScript>();
+		HS.next = headPiece;
+		headPiece.next.previous = HS;
+		HS.Entry = false;
+		//Animate worm
     }
 
     private void ApplyDamage(int damage)

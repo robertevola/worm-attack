@@ -63,13 +63,13 @@ public class Joystick : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData data)
     {
-        Debug.Log(name + " Engaged ...");
+        //Debug.Log(name + " Engaged ...");
         joystickInUse = true;
     }
 
     public void OnDrag(PointerEventData data)
     {
-        Debug.Log(name + " Being Dragged");
+        //Debug.Log(name + " Being Dragged");
 
         if (!joystickInUse)
         {
@@ -87,13 +87,13 @@ public class Joystick : MonoBehaviour , IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnEndDrag(PointerEventData data)
     {
-        Debug.Log(name + " Released ...");
+        //Debug.Log(name + " Released ...");
         ResetJoystick();
     }
 
     private void ResetJoystick()
     {
-        Debug.Log("Joystick Being Reset ...");
+        //Debug.Log("Joystick Being Reset ...");
         joystickInUse = false;
         targetAnchorPosition = originAnchorPosition;
         movementDirection = Vector2.zero;
