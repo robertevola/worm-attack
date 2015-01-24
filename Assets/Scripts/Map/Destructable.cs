@@ -16,7 +16,10 @@ public class Destructable : MonoBehaviour {
 	
 	}
 	void OnCollisionEnter2D(Collision2D c){
-		Instantiate (explosion, c.transform.position, Quaternion.identity);
+		if (transform.parent.transform.childCount <= 1) {
+			Destroy(transform.parent.gameObject);
+		}
+		Instantiate (explosion, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 }

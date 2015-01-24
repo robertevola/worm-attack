@@ -8,10 +8,11 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject grassSection;
 	public GameObject roadSection;
 	public GameObject[] buildings;
-
+	public Rect MapBounds;
 	public float levelScale = 1.0f;
-	Color BuildingColor = new Color(0,0,0,1);
-	Color RoadColor = new Color(1,0,0,1);
+	Color BuildingColor = new Color(1,0,0,1);
+	Color RoadColor = new Color(0,0,0,1);
+	Color ToxicColor = new Color(0,1,0,1);
 
 	void Start() {
 		currentMap = mapList[Random.Range(0, mapList.Length)];
@@ -41,6 +42,7 @@ public class MapGenerator : MonoBehaviour {
 				obj.transform.parent = transform;
 			}
 		}
+		MapBounds = new Rect(0,0,grassSection.transform.localScale.x * currentMap.width *  levelScale, grassSection.transform.localScale.y * currentMap.height *  levelScale);
 		transform.localScale = new Vector3 (levelScale, levelScale, 0);
 	}
 
