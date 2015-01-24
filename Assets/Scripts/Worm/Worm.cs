@@ -7,8 +7,8 @@ public class Worm : MonoBehaviour
     public Joystick movementStick;
     public Button digButton;
 
-    private WormPiece headPiece, tailPiece, ringPiece;
-    
+    private WormPiece tailPiece;
+	private WormHead headPiece;
     private Vector2 moveDirection;
     public Vector2 baseMovementSpeed;
     public Vector2 currentVelocity;
@@ -20,7 +20,8 @@ public class Worm : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+		headPiece = transform.FindChild("Head").gameObject.GetComponent<WormHead>();
+		tailPiece = transform.FindChild("Tail").gameObject.GetComponent<WormPiece>();
 	}
 	
 	// Update is called once per frame
@@ -29,8 +30,10 @@ public class Worm : MonoBehaviour
         UpdateMoveDirection();
         UpdateDigState();
 
-        currentVelocity.x = baseMovementSpeed.x * moveDirection.x;
-        currentVelocity.y = baseMovementSpeed.y * moveDirection.y;
+        headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
+        headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
+
+
 	}
 
     private void UpdateMoveDirection()

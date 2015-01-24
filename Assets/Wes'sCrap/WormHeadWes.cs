@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WormHead : MonoBehaviour {
+public class WormHeadWes : MonoBehaviour {
 	public float SpeedUpMul = 1f;
 	public float SpeedDownMul = 0.025f;
 	public float IdleSpeed = 0.05f;
