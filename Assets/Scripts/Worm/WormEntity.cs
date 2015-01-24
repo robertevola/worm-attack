@@ -8,9 +8,12 @@ public class WormEntity : MonoBehaviour {
 	void Start () {
 	
 	}
-	
+	protected virtual void OnUpdate()
+	{
+
+	}
 	// Update is called once per frame
 	void Update () {
-	
+		OnUpdate();
 	}
 }

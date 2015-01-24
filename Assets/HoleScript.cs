@@ -25,8 +25,17 @@ public class HoleScript : WormEntity {
 			if(wp.next.gameObject.tag == "WormBody")
 			wp.next.previous = this; 
 			base.next = wp;
+
 			if(Entry)
 			wp.isUnderground = true;
+			else wp.isUnderground = false;
+		}
+		if(col.gameObject.tag == "WormTail")
+		{
+			WormEntity wp = col.gameObject.GetComponent<WormEntity>();
+			wp.previous = base.next;
+			Destroy(this.gameObject);	
 		}
 	}
+
 }

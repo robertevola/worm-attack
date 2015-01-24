@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WormHead : WormPiece {
 
-	float speed;
+	public float HeadSpeed;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,11 @@ public class WormHead : WormPiece {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(this.transform.up * speed, Space.World);
+		OnUpdate();
+	}
+	protected override void OnUpdate()
+	{
+		transform.Translate(this.transform.up * HeadSpeed * Time.deltaTime * Speed, Space.World);
 	}
 	void OnTriggerEnter(Collider col)
 	{
@@ -24,7 +28,7 @@ public class WormHead : WormPiece {
 	}
 	public void AdjustSpeed(float value)
 	{
-		speed = value;
+		Speed = value * HeadSpeed;
 	}
 
 }
