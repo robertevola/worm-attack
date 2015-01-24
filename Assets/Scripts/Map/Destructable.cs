@@ -19,7 +19,9 @@ public class Destructable : MonoBehaviour {
 		if (transform.parent.transform.childCount <= 1) {
 			Destroy(transform.parent.gameObject);
 		}
-		Instantiate (explosion, transform.position, Quaternion.identity);
+		explosion.transform.RotateAround (Vector3.zero, new Vector3(0,0,1), Random.Range(-360, 360));
+		GameObject rubble = Instantiate (explosion, transform.position, explosion.transform.rotation) as GameObject;
+		Destroy (rubble,  Random.Range(4, 8));
 		Destroy(gameObject);
 	}
 }
