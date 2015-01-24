@@ -9,6 +9,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject roadSection;
 	public GameObject[] buildings;
 
+	public float levelScale = 1.0f;
 	Color BuildingColor = new Color(0,0,0,1);
 	Color RoadColor = new Color(1,0,0,1);
 
@@ -40,6 +41,7 @@ public class MapGenerator : MonoBehaviour {
 				obj.transform.parent = transform;
 			}
 		}
+		transform.localScale = new Vector3 (levelScale, levelScale, 0);
 	}
 
 	// Update is called once per frame
