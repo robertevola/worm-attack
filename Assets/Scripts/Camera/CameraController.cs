@@ -32,9 +32,18 @@ public class CameraController : MonoBehaviour
 	    if(rotateWithTarget)
         {
             targetRotation = objectToFollow.rotation;
-
-            Quaternion tempRot = Quaternion.Slerp(controlledCamera.transform.rotation, targetRotation, Time.deltaTime * rotatingSmoothFactor);
-            controlledCamera.transform.rotation = tempRot;
         }
+
+        Quaternion tempRot = Quaternion.Slerp(controlledCamera.transform.rotation, targetRotation, Time.deltaTime * rotatingSmoothFactor);
+        controlledCamera.transform.rotation = tempRot;
 	}
+
+    public void SetRotateWithTarget(bool rotate)
+    {
+        rotateWithTarget = rotate;
+        if(rotateWithTarget == false)
+        {
+            targetRotation = Quaternion.identity;
+        }
+    }
 }
