@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 457402}
   - 212: {fileID: 21257402}
   m_Layer: 0
-  m_Name: Rubble
+  m_Name: BlueRubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22,8 +22,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157402}
-  m_LocalRotation: {x: 0, y: 0, z: -.953715801, w: -.300709397}
-  m_LocalPosition: {x: 3.091609, y: -1.29802108, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -.930416584, w: -.366503805}
+  m_LocalPosition: {x: 2.8808763, y: -1.71564758, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -48,7 +48,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec941e2b869c2429b9713567f5635e47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7ce9251057854b10bc879fd83fd3c6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
