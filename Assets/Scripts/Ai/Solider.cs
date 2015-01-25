@@ -119,7 +119,7 @@ public class Solider : MonoBehaviour
     private void Flee()
     {
         if (target == null)
-            target = transform;
+            target = GameObject.FindGameObjectWithTag("WormHead").transform;
 
         targetDirection = transform.position - target.position;
         targetDirection.z = 0;
@@ -128,7 +128,7 @@ public class Solider : MonoBehaviour
     private void Fight()
     {
         if (target == null)
-            target = transform;
+            target = GameObject.FindGameObjectWithTag("WormHead").transform;
 
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
@@ -151,7 +151,7 @@ public class Solider : MonoBehaviour
     private void Chase()
     {
         if (target == null)
-            target = transform;
+            target = GameObject.FindGameObjectWithTag("WormHead").transform;
 
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
