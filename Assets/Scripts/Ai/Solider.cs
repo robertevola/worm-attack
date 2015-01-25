@@ -34,8 +34,7 @@ public class Solider : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        walkAnimator.enabled = true;
-        shootAnimator.enabled = false;
+        ToggleAnimatons(true);
     }
 
     // Update is called once per frame
@@ -106,8 +105,8 @@ public class Solider : MonoBehaviour
 
     private void ToggleAnimatons(bool isWalking)
     {
-        walkAnimator.enabled = isWalking;
-        shootAnimator.enabled = !isWalking;
+        walkAnimator.ToggleAnimation(isWalking);
+        shootAnimator.ToggleAnimation(!isWalking);
     }
 
     private void Wander()

@@ -23,4 +23,9 @@ public class InGameGUIHandler : MonoBehaviour
         GameManager.TogglePause();
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
+
+    public void RestartScene()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

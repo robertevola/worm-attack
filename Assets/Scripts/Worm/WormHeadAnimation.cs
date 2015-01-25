@@ -33,20 +33,26 @@ public class WormHeadAnimation : MonoBehaviour {
 		}
 	}
 
-    void OnDisable()
+    public void ToggleAnimation(bool state)
     {
-        if(sr != null)
-            sr.enabled = false;
-
-        StopCoroutine(WormAnima());
+        sr.enabled = state;
+        this.enabled = state;
     }
 
-    void OnEnable()
-    {
-        if (sr != null)
-            sr.enabled = true;
+    //void OnDisable()
+    //{
+    //    if(sr != null)
+    //        sr.enabled = false;
 
-        StartCoroutine(WormAnima());
-    }
+    //    StopCoroutine(WormAnima());
+    //}
+
+    //void OnEnable()
+    //{
+    //    if (sr != null)
+    //        sr.enabled = true;
+
+    //    StartCoroutine(WormAnima());
+    //}
 
 }
