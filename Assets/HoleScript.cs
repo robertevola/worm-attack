@@ -34,6 +34,9 @@ public class HoleScript : WormEntity {
 		{
 			WormEntity wp = col.gameObject.GetComponent<WormEntity>();
 			wp.previous = base.next;
+			if(Entry)
+			wp.isUnderground = true;
+			else wp.isUnderground = false;
 			Destroy(this.gameObject);	
 		}
 	}
