@@ -160,7 +160,7 @@ public class Human : MonoBehaviour
     {
         if (c.tag == "WormHead")
         {
-            if(Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            if(Vector3.Distance(c.transform.position, transform.position) <= 1.0f)
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
@@ -184,16 +184,4 @@ public class Human : MonoBehaviour
       
     }
 
-    void OnCollisionEnter2D(Collision2D c)
-    {
-        Debug.Log("Civilial Eaten");
-        if (c.collider.tag == "WormHead")
-        {
-            SendMessage("PushValueToPlayerScore");
-        }
-        else if (c.collider.tag == "WormBody" || c.collider.tag == "WormTail")
-        {
-
-        }
-    }
 }

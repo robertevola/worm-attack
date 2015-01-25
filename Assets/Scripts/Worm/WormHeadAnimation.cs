@@ -8,6 +8,7 @@ public class WormHeadAnimation : MonoBehaviour {
 	public int FramesPerSec = 3;
 	public int currentFrame = 0;
 
+
 	// Use this for initialization
 	SpriteRenderer sr;
 	void Start () {
@@ -19,17 +20,33 @@ public class WormHeadAnimation : MonoBehaviour {
 	{
 		while(true)
 		{
-			sr.sprite = Frames[currentFrame];
-			currentFrame++;
-			if(currentFrame >= Frames.Count)
-			{
-				currentFrame = 0;
-			}
+            if (sr != null)
+            {
+                sr.sprite = Frames[currentFrame];
+                currentFrame++;
+                if (currentFrame >= Frames.Count)
+                {
+                    currentFrame = 0;
+                }
+            }
 			yield return new WaitForSeconds(1.0f/FramesPerSec);
 		}
 	}
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void OnDisable()
+    {
+        if(sr != null)
+            sr.enabled = false;
+
+        StopCoroutine(WormAnima());
+    }
+
+    void OnEnable()
+    {
+        if (sr != null)
+            sr.enabled = true;
+
+        StartCoroutine(WormAnima());
+    }
+
 }
