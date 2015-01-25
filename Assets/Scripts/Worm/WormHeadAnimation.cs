@@ -12,6 +12,7 @@ public class WormHeadAnimation : MonoBehaviour {
 	// Use this for initialization
 	public SpriteRenderer sr;
 	void Start () {
+		
 		StartCoroutine(WormAnima());
 	}
 	IEnumerator WormAnima()

@@ -47,15 +47,12 @@ public class Worm : MonoBehaviour
 			headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
 	        headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
 			if(isDigging)underTime+=Time.deltaTime;
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(Input.GetKey(KeyCode.Space))
 			{
 				AddBodyChunk();
 			}
 
-			if(Input.GetKeyDown(KeyCode.LeftControl))
-			{
-				ToggleDig();
-			}
+
 			if(underTime > UnderGroundTime)
 			{
 				Surface ();
@@ -149,8 +146,6 @@ public class Worm : MonoBehaviour
 //			{
 //				moveDirection = new Vector2(transform.up.x, transform.up.y); //Player moves forward at base speed when no movement input is given
 //			}
-//
-//
 //		}
 
 
@@ -160,7 +155,7 @@ public class Worm : MonoBehaviour
     {
         if(!isDigging)
         {
-            if (digButton.IsPressed)
+            if (digButton.IsPressed & currentTime >= DigCoolDown)
             {
                 isDigging = true;
                 DigDown();
@@ -168,7 +163,7 @@ public class Worm : MonoBehaviour
         }
         else
         {
-            if(!digButton.IsHeldDown)
+            if(!digButton.IsHeldDown && isDigging)
             {
                 isDigging = false;
                 Surface();
@@ -208,6 +203,7 @@ public class Worm : MonoBehaviour
 		HS.next = headPiece;
 		headPiece.next.previous = HS;
 		HS.Entry = false;
+		currentTime =0;
 		//Animate worm
     }
 

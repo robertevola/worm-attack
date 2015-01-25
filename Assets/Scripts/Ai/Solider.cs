@@ -122,7 +122,7 @@ public class Solider : MonoBehaviour
         targetDirection = transform.position - target.position;
         targetDirection.z = 0;
     }
-	int count = 0;
+	//int count = 0;
     private void Fight()
     {
 		if (target == null)
@@ -130,8 +130,8 @@ public class Solider : MonoBehaviour
 
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
-		Debug.Log(count);
-        Debug.DrawRay(transform.position, targetDirection * fightRadius, Color.red, 2.0f);
+
+        //Debug.DrawRay(transform.position, targetDirection * fightRadius, Color.red, 2.0f);
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, fightRadius,9);
         foreach (RaycastHit2D hit in hits)
         {
@@ -216,7 +216,7 @@ public class Solider : MonoBehaviour
     {
         if (c.tag == "WormHead")
         {
-            if (Vector3.Distance(c.transform.position, transform.position) <= 1.0f)
+            if (Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
@@ -229,7 +229,7 @@ public class Solider : MonoBehaviour
         }
         else if (c.tag == "WormBody")
         {
-            if (Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            if (Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 deathParticleEffect.transform.position = this.transform.position;
                 Instantiate(deathParticleEffect);
