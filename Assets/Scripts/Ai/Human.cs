@@ -160,10 +160,11 @@ public class Human : MonoBehaviour
     {
         if (c.tag == "WormHead")
         {
-            if(Vector3.Distance(c.transform.position, transform.position) <= 1.0f)
+            if(Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
+                GameManager.IncreaseScore(200);
                 Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
@@ -172,7 +173,7 @@ public class Human : MonoBehaviour
         }
         else if (c.tag == "WormBody")
         {
-            if (Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            if (Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 deathParticleEffect.transform.position = this.transform.position;
                 Instantiate(deathParticleEffect);

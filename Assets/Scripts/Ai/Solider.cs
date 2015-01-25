@@ -5,7 +5,7 @@ public class Solider : MonoBehaviour
 {
     private Vector2 WANDERING_TIMER_RANGE = new Vector2(2.0f, 7.0f);
     private Vector2 FLEEING_TIMER_RANGE = new Vector2(1.5f, 4.0f);
-    private Vector2 FIGHT_TIMER_RANGE = new Vector2(0.15f, 0.2f);
+    private Vector2 FIGHT_TIMER_RANGE = new Vector2(3f, 3f);
     private Vector2 CHASING_TIMER_RANGE = new Vector2(0.1f, 0.25f);
     private Vector2 DEFAULT_TIMER_RANGE = new Vector2(1.0f, 5.0f);
 
@@ -27,15 +27,14 @@ public class Solider : MonoBehaviour
     private bool updateStateBehaviour = true;
     private float updateStateTick = 0.0f;
 
-    public WormHeadAnimation walkAnimator;
-    public WormHeadAnimation shootAnimator;
+    public GameObject walkAnimator;
+	public GameObject shootAnimator;
     public GameObject deathParticleEffect;
 
     // Use this for initialization
     void Start()
     {
-        walkAnimator.enabled = true;
-        shootAnimator.enabled = false;
+        ToggleAnimatons(true);
     }
 
     // Update is called once per frame
@@ -101,13 +100,12 @@ public class Solider : MonoBehaviour
             default:
                 break;
         }
-        updateStateBehaviour = true;
     }
 
     private void ToggleAnimatons(bool isWalking)
     {
-        walkAnimator.enabled = isWalking;
-        shootAnimator.enabled = !isWalking;
+        walkAnimator.SetActive(isWalking);
+		shootAnimator.SetActive(!isWalking);
     }
 
     private void Wander()
@@ -119,28 +117,30 @@ public class Solider : MonoBehaviour
     private void Flee()
     {
         if (target == null)
-            target = transform;
+			target = GameObject.FindGameObjectWithTag("WormHead").transform;
 
         targetDirection = transform.position - target.position;
         targetDirection.z = 0;
     }
-
+	//int count = 0;
     private void Fight()
     {
-        if (target == null)
-            target = transform;
+		if (target == null)
+			target = GameObject.FindGameObjectWithTag("WormHead").transform;  
 
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
 
         //Debug.DrawRay(transform.position, targetDirection * fightRadius, Color.red, 2.0f);
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, fightRadius);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, fightRadius,9);
         foreach (RaycastHit2D hit in hits)
         {
             string hitTag = hit.transform.tag;
-            if(hitTag == "WormHead" || hitTag == "WormHead" || hitTag == "WormHead")
+            if(hitTag == "WormHead" || hitTag == "WormBody" || hitTag == "WormTail")
             {
+
                 hit.transform.SendMessageUpwards("ApplyDamage", damage);
+				break;
             }
         }
         
@@ -150,8 +150,8 @@ public class Solider : MonoBehaviour
 
     private void Chase()
     {
-        if (target == null)
-            target = transform;
+		if (target == null)
+			target = GameObject.FindGameObjectWithTag("WormHead").transform;
 
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
@@ -216,26 +216,27 @@ public class Solider : MonoBehaviour
     {
         if (c.tag == "WormHead")
         {
-            if (Vector3.Distance(c.transform.position, transform.position) <= 1.0f)
+            if (Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
+                GameManager.IncreaseScore(500);
                 Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
-            else if (currentState == SoliderState.WANDERING)
+            else 
                 WormSeen(c.transform);
         }
         else if (c.tag == "WormBody")
         {
-            if (Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            if (Vector3.Distance(c.transform.position, transform.position) <= 1.5f)
             {
                 deathParticleEffect.transform.position = this.transform.position;
                 Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
-            else if (currentState == SoliderState.WANDERING)
-                WormSeen(c.transform.Find("Head"));
+            else 
+                WormSeen(c.transform.parent.FindChild("Head"));
         }
 
     }

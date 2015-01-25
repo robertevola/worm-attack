@@ -14,6 +14,13 @@ public class Worm : MonoBehaviour
     private Vector2 moveDirection;
     public Vector2 baseMovementSpeed;
     public bool isDigging;
+	public float DigCoolDown = 3.0f;
+	public float UnderGroundTime = 3.0f;
+
+	float currentTime = 0;
+	float underTime = 0;
+	bool cantDig = false;
+
 
     public int startingHealth = 100;
 	private int currentHealth;
@@ -36,17 +43,21 @@ public class Worm : MonoBehaviour
 		{
 	        UpdateMoveDirection();
 	        UpdateDigState();
-
+			currentTime+= Time.deltaTime;
 			headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
 	        headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
-
-			if(Input.GetKeyDown(KeyCode.Space))
+			if(isDigging)underTime+=Time.deltaTime;
+			if(Input.GetKey(KeyCode.Space))
 			{
 				AddBodyChunk();
 			}
-			if(Input.GetKeyDown(KeyCode.LeftControl))
+
+
+			if(underTime > UnderGroundTime)
 			{
-				ToggleDig();
+				Surface ();
+				isDigging = false;
+				underTime = 0;
 			}
 		}
 
@@ -56,9 +67,13 @@ public class Worm : MonoBehaviour
 			if (isDigging) {
 				isDigging = false;
 				Surface ();
-			} else {	
-				isDigging = true;
-				DigDown ();
+				currentTime = 0;
+			} else {
+				if(currentTime > DigCoolDown)
+				{
+					isDigging = true;
+					DigDown ();
+				}
 			}
 		}
 	}
@@ -131,8 +146,6 @@ public class Worm : MonoBehaviour
 //			{
 //				moveDirection = new Vector2(transform.up.x, transform.up.y); //Player moves forward at base speed when no movement input is given
 //			}
-//
-//
 //		}
 
 
@@ -142,7 +155,7 @@ public class Worm : MonoBehaviour
     {
         if(!isDigging)
         {
-            if (digButton.IsPressed)
+            if (digButton.IsPressed & currentTime >= DigCoolDown)
             {
                 isDigging = true;
                 DigDown();
@@ -150,7 +163,7 @@ public class Worm : MonoBehaviour
         }
         else
         {
-            if(!digButton.IsHeldDown)
+            if(!digButton.IsHeldDown && isDigging)
             {
                 isDigging = false;
                 Surface();
@@ -190,6 +203,7 @@ public class Worm : MonoBehaviour
 		HS.next = headPiece;
 		headPiece.next.previous = HS;
 		HS.Entry = false;
+		currentTime =0;
 		//Animate worm
     }
 

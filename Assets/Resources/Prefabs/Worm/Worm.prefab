@@ -10,14 +10,13 @@ GameObject:
   - 4: {fileID: 443136}
   - 58: {fileID: 5843136}
   - 114: {fileID: 11443136}
-  - 50: {fileID: 5043136}
   m_Layer: 0
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &151282
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .670000017, z: 0}
+  m_LocalPosition: {x: 0, y: .699999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 451286}
@@ -168,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.6200008, y: 8, z: 0}
+  m_LocalPosition: {x: 200, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451286}
@@ -339,21 +338,6 @@ Rigidbody2D:
   m_GravityScale: 0
   m_FixedAngle: 0
   m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!50 &5043136
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 143136}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 0
-  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -579,6 +563,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 37f52e22c4f1f094ca53b06796e648d0, type: 3}
   FramesPerSec: 3
   currentFrame: 0
+  sr: {fileID: 21251286}
 --- !u!212 &21251286
 SpriteRenderer:
   m_ObjectHideFlags: 1
