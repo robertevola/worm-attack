@@ -23,6 +23,6 @@ public static class GameManager
     public static void IncreaseScore(int value)
     {
         currentScore += value;
-        Scorebar.SetScoreText(value);
+        Scorebar.SetScoreText(currentScore);
     }
 }

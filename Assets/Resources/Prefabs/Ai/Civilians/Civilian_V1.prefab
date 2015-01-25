@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 494842}
   - 114: {fileID: 11494846}
   - 50: {fileID: 5094848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Civilian_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494844}
   - 60: {fileID: 6094848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SightTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 4: {fileID: 494846}
   - 212: {fileID: 21294848}
   - 114: {fileID: 11494848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HumanSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 494848}
   - 58: {fileID: 5894848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

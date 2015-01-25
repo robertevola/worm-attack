@@ -46,24 +46,21 @@ public class Worm : MonoBehaviour
 			}
 			if(Input.GetKeyDown(KeyCode.LeftControl))
 			{
-				if(isDigging)
-				{
-
-					isDigging = false;
-					//Debug.Log("isDigging "+isDigging);
-					Surface();
-				}
-				else
-				{	
-
-					isDigging = true;
-					//Debug.Log("isDigging "+isDigging);
-					DigDown();
-				}
-
+				ToggleDig();
 			}
 		}
 
+	}
+	public void ToggleDig(){
+		if (isAlive) {
+			if (isDigging) {
+				isDigging = false;
+				Surface ();
+			} else {	
+				isDigging = true;
+				DigDown ();
+			}
+		}
 	}
 	public void KillWorm()
 	{

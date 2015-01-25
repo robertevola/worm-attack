@@ -11,9 +11,9 @@ GameObject:
   - 61: {fileID: 6141014}
   - 50: {fileID: 5041014}
   - 114: {fileID: 11494630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Factory
-  m_TagString: Untagged
+  m_TagString: Factory
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 441014}
   - 212: {fileID: 21241014}
   - 95: {fileID: 9541014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: factory1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

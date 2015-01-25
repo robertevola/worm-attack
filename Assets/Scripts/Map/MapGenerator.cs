@@ -8,6 +8,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject grassSection;
 	public GameObject roadSection;
 	public GameObject grassRoadSection;
+	public GameObject borderSection;
 
 	public GameObject[] buildings;
 	public Rect MapBounds;
@@ -15,7 +16,7 @@ public class MapGenerator : MonoBehaviour {
 	Color BuildingColor = new Color(1,0,0,1);
 	Color RoadColor = new Color(0,0,0,1);
 	Color GrassRoadColor = new Color(0,0,1,1);
-	Color ToxicColor = new Color(0,1,0,1);
+	Color BorderColor = new Color(0,1,0,1);
 
 	void Start() {
 		currentMap = mapList[Random.Range(0, mapList.Length)];
@@ -33,6 +34,9 @@ public class MapGenerator : MonoBehaviour {
 					objToSpawn = roadSection;
 				} else if(currentColor == GrassRoadColor) {
 					objToSpawn = grassRoadSection;
+					//Debug.Log("DIRTGRASS");
+				} else if(currentColor == BorderColor) {
+					objToSpawn = borderSection;
 					//Debug.Log("DIRTGRASS");
 				} else if(currentColor == BuildingColor) {
 					objToSpawn = grassSection;

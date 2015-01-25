@@ -6,6 +6,7 @@ public class Destructable : MonoBehaviour {
 	public int health;
 	private int currentHealth;
 	public GameObject explosion;
+	public GameObject[] civilians;
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +17,9 @@ public class Destructable : MonoBehaviour {
 	
 	}
 	void OnCollisionEnter2D(Collision2D c){
+				if (c.transform.tag != "WormHead" && c.transform.tag != "WormBody") {
+						return;
+		}
 		if (transform.parent.transform.childCount <= 1) {
 			Destroy(transform.parent.gameObject);
 		}
@@ -23,5 +27,15 @@ public class Destructable : MonoBehaviour {
 		GameObject rubble = Instantiate (explosion, transform.position, explosion.transform.rotation) as GameObject;
 		Destroy (rubble,  Random.Range(4, 8));
 		Destroy(gameObject);
+		GameManager.IncreaseScore (points);
+
+		// If this object has civilians
+		if (civilians.Length > 0) {
+			Instantiate (civilians [Random.Range (0, civilians.Length)], transform.position, Quaternion.identity);
+		}
+		// Factory just died so mutate worm.
+		if (transform.tag == "Factory") {
+			GameObject.Find ("Worm").GetComponent<Worm> ().AddBodyChunk ();
+		}
 	}
 }
