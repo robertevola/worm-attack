@@ -11,8 +11,7 @@ GameObject:
   - 212: {fileID: 21269264}
   - 114: {fileID: 11469268}
   - 61: {fileID: 6169268}
-  - 50: {fileID: 5069268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: house1
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -27,7 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469266}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House2
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -45,8 +44,7 @@ GameObject:
   - 212: {fileID: 21269266}
   - 114: {fileID: 11469266}
   - 61: {fileID: 6169266}
-  - 50: {fileID: 5069266}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: house2
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -64,8 +62,7 @@ GameObject:
   - 212: {fileID: 21269268}
   - 114: {fileID: 11469264}
   - 61: {fileID: 6169264}
-  - 50: {fileID: 5069264}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: house4
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -83,8 +80,7 @@ GameObject:
   - 212: {fileID: 21269270}
   - 114: {fileID: 11469270}
   - 61: {fileID: 6169270}
-  - 50: {fileID: 5069270}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: house3
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -155,66 +151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 469266}
   m_RootOrder: 3
---- !u!50 &5069264
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169270}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!50 &5069266
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169268}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!50 &5069268
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169264}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
---- !u!50 &5069270
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169272}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!61 &6169264
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -223,7 +159,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 169270}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .899999976, y: .899999976}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6169266
@@ -234,7 +170,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 169268}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .899999976, y: .899999976}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6169268
@@ -245,7 +181,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 169264}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .899999976, y: .899999976}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6169270
@@ -256,7 +192,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 169272}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: .899999976, y: .899999976}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11469264

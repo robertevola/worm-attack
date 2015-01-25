@@ -16,11 +16,11 @@ public class Destructable : MonoBehaviour {
 	void Update () {
 	
 	}
-	void OnCollisionEnter2D(Collision2D c){
+	void OnTriggerEnter2D(Collider2D c){
 		if (c.transform.tag != "WormHead" && c.transform.tag != "WormBody") {
 			return;
 		}
-
+		
 		if (transform.parent.transform.childCount <= 1) {
 			Destroy(transform.parent.gameObject);
 		}
@@ -29,7 +29,7 @@ public class Destructable : MonoBehaviour {
 		Destroy (rubble,  Random.Range(4, 8));
 		Destroy(gameObject);
 		GameManager.IncreaseScore (points);
-
+		
 		// If this object has civilians
 		if (civilians.Length > 0) {
 			Instantiate (civilians [Random.Range (0, civilians.Length)], transform.position, Quaternion.identity);
