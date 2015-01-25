@@ -11,11 +11,16 @@ public class CameraController : MonoBehaviour
     private Vector3 targetPosition;
     private Quaternion targetRotation;
 
+
     public float translatingSmoothFactor = 5.0f;
     public float rotatingSmoothFactor = 10.0f;
 
     public bool rotateWithTarget = true;
 
+	public GameObject WormDeathEffect;
+	public bool Dieing;
+
+	GameObject deathEffect;
 	// Use this for initialization
 	void Start () 
     {
@@ -25,17 +30,29 @@ public class CameraController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        targetPosition = objectToFollow.position + (-objectToFollow.forward * distanceFromTarget);
-        Vector3 tempPos = Vector3.Lerp(controlledCamera.transform.position, targetPosition, Time.deltaTime * translatingSmoothFactor);
-        controlledCamera.transform.position = tempPos;
+		if(objectToFollow != null)
+		{
+	        targetPosition = objectToFollow.position + (-objectToFollow.forward * distanceFromTarget);
+	        Vector3 tempPos = Vector3.Lerp(controlledCamera.transform.position, targetPosition, Time.deltaTime * translatingSmoothFactor);
+	        controlledCamera.transform.position = tempPos;
 
-	    if(rotateWithTarget)
-        {
-            targetRotation = objectToFollow.rotation;
-        }
+		    if(rotateWithTarget)
+	        {
+	            targetRotation = objectToFollow.rotation;
+	        }
 
-        Quaternion tempRot = Quaternion.Slerp(controlledCamera.transform.rotation, targetRotation, Time.deltaTime * rotatingSmoothFactor);
-        controlledCamera.transform.rotation = tempRot;
+	        Quaternion tempRot = Quaternion.Slerp(controlledCamera.transform.rotation, targetRotation, Time.deltaTime * rotatingSmoothFactor);
+	        controlledCamera.transform.rotation = tempRot;
+			if(Dieing)
+			{
+				if(deathEffect==null)deathEffect = Instantiate(WormDeathEffect, objectToFollow.position, objectToFollow.rotation)as GameObject;
+
+				deathEffect.transform.position = objectToFollow.transform.position+new Vector3(0.0f,0.0f,-1.0f);
+				deathEffect.transform.rotation = objectToFollow.transform.rotation;
+
+			}
+		}
+
 	}
 
     public void SetRotateWithTarget(bool rotate)

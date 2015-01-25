@@ -32,35 +32,44 @@ public class Worm : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        UpdateMoveDirection();
-        UpdateDigState();
-
-		headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
-        headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
-
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(isAlive)
 		{
-			AddBodyChunk();
-		}
-		if(Input.GetKeyDown(KeyCode.LeftControl))
-		{
-			if(isDigging)
+	        UpdateMoveDirection();
+	        UpdateDigState();
+
+			headPiece.Turn(baseMovementSpeed.x * moveDirection.x);
+	        headPiece.AdjustSpeed(baseMovementSpeed.y * moveDirection.y);
+
+			if(Input.GetKeyDown(KeyCode.Space))
 			{
-
-				isDigging = false;
-				//Debug.Log("isDigging "+isDigging);
-				Surface();
+				AddBodyChunk();
 			}
-			else
-			{	
+			if(Input.GetKeyDown(KeyCode.LeftControl))
+			{
+				if(isDigging)
+				{
 
-				isDigging = true;
-				//Debug.Log("isDigging "+isDigging);
-				DigDown();
+					isDigging = false;
+					//Debug.Log("isDigging "+isDigging);
+					Surface();
+				}
+				else
+				{	
+
+					isDigging = true;
+					//Debug.Log("isDigging "+isDigging);
+					DigDown();
+				}
+
 			}
-
 		}
 
+	}
+	public void KillWorm()
+	{
+		Camera.main.GetComponent<CameraController>().Dieing = true;
+		isAlive = false;
+		headPiece.KillSelf();
 	}
 	public void SetWormyState(bool state)
 	{
@@ -69,6 +78,7 @@ public class Worm : MonoBehaviour
 
     private void UpdateMoveDirection()
     {
+		if(isAlive)
 		if(movementStick.InUse)
 		{
 			if(wormyControlsEnabled)

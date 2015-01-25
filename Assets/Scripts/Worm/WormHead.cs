@@ -8,11 +8,16 @@ public class WormHead : WormPiece {
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		Invoke("EnableMouth", 1f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		OnUpdate();
+	}
+	void EnableMouth()
+	{
+		transform.FindChild("Mouth").gameObject.SetActive(true);
 	}
 	protected override void OnUpdate()
 	{

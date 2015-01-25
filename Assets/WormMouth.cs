@@ -12,5 +12,11 @@ public class WormMouth : MonoBehaviour {
 	void Update () {
 	
 	}
-
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.gameObject.tag == "WormBody")
+		{
+			col.gameObject.transform.parent.GetComponent<Worm>().KillWorm();
+		}
+	}
 }
