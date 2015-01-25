@@ -164,6 +164,7 @@ public class Human : MonoBehaviour
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
+                GameManager.IncreaseScore(200);
                 Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }

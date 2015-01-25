@@ -10,10 +10,8 @@ public class WormHeadAnimation : MonoBehaviour {
 
 
 	// Use this for initialization
-	SpriteRenderer sr;
+	public SpriteRenderer sr;
 	void Start () {
-		sr = GetComponent<SpriteRenderer>();
-
 		StartCoroutine(WormAnima());
 	}
 	IEnumerator WormAnima()
@@ -35,7 +33,6 @@ public class WormHeadAnimation : MonoBehaviour {
 
     public void ToggleAnimation(bool state)
     {
-        sr.enabled = state;
         this.enabled = state;
     }
 

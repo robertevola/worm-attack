@@ -220,6 +220,7 @@ public class Solider : MonoBehaviour
             {
                 c.SendMessageUpwards("AddBodyChunk");
                 deathParticleEffect.transform.position = this.transform.position;
+                GameManager.IncreaseScore(500);
                 Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
