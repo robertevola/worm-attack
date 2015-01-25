@@ -195,17 +195,19 @@ public class Worm : MonoBehaviour
 
     public void ApplyDamage(int damage)
     {
+
         currentHealth -= damage;
 		if(currentHealth <= 0)
         {
 			currentHealth = 0;
             isAlive = false;
         }
+		Debug.Log("currentHealth:" + currentHealth);
     }
 
 	public void ApplyHeal(int heal)
-	{
-		currentHealth += heal;
+	{		currentHealth += heal;
+
 		if(currentHealth >= startingHealth)
 		{
 			currentHealth = startingHealth;
