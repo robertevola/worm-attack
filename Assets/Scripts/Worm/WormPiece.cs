@@ -4,13 +4,13 @@ using System.Collections;
 [RequireComponent(typeof(SpriteRenderer))]
 public class WormPiece : WormEntity 
 {
-    private SpriteRenderer spriteRenderer;
+    
 
 	public float radius = 45.0f; 
 	public float Speed = 1.0f;
   	
 
-	float holeEntryScale = 0.5f;
+	protected float holeEntryScale = 0.5f;
 
 	// Use this for initialization
 	void Start () 
@@ -43,19 +43,30 @@ public class WormPiece : WormEntity
 		}
 		if(base.isUnderground)
 		{
-			
-			Vector3 holeScale = new Vector3();
-			holeScale.x = Mathf.Lerp(transform.localScale.x, holeEntryScale, 0.75f);
-			holeScale.y = Mathf.Lerp(transform.localScale.y, holeEntryScale, 0.75f);
-			holeScale.z =  Mathf.Lerp(transform.localScale.z, holeEntryScale, 0.75f);
-			transform.localScale = holeScale;
+			Color color = spriteRenderer.color;
+			color.r = Mathf.Lerp(color.r, 0.2f, 0.5f);
+			color.g = Mathf.Lerp(color.g, 0.2f, 0.5f);
+			color.b = Mathf.Lerp(color.b, 0.2f, 0.5f);
+			color.a = Mathf.Lerp(color.a, 0.2f, 0.5f);
+			spriteRenderer.color = color;
+//			Vector3 holeScale = new Vector3();
+//			holeScale.x = Mathf.Lerp(transform.localScale.x, holeEntryScale, 0.75f);
+//			holeScale.y = Mathf.Lerp(transform.localScale.y, holeEntryScale, 0.75f);
+//			holeScale.z =  Mathf.Lerp(transform.localScale.z, holeEntryScale, 0.75f);
+//			transform.localScale = holeScale;
 		}else
 		{
-			Vector3 holeScale = new Vector3();
-			holeScale.x = Mathf.Lerp(transform.localScale.x, 1.0f, 0.75f);
-			holeScale.y = Mathf.Lerp(transform.localScale.y, 1.0f, 0.75f);
-			holeScale.z = Mathf.Lerp(transform.localScale.z, 1.0f, 0.75f);
-			transform.localScale = holeScale;
+			Color color = spriteRenderer.color;
+			color.r = Mathf.Lerp(color.r, 1.0f, 0.5f);
+			color.g = Mathf.Lerp(color.g, 1.0f, 0.5f);
+			color.b = Mathf.Lerp(color.b, 1.0f, 0.5f);
+			color.a = Mathf.Lerp(color.b, 1.0f, 0.5f);
+			spriteRenderer.color = color;
+//			Vector3 holeScale = new Vector3();
+//			holeScale.x = Mathf.Lerp(transform.localScale.x, 1.0f, 0.75f);
+//			holeScale.y = Mathf.Lerp(transform.localScale.y, 1.0f, 0.75f);
+//			holeScale.z = Mathf.Lerp(transform.localScale.z, 1.0f, 0.75f);
+//			transform.localScale = holeScale;
 		}
 	}
 

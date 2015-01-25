@@ -167,6 +167,7 @@ public class Worm : MonoBehaviour
     private void DigDown()
     {
 		GameObject go = Instantiate(HoleGO, headPiece.transform.position, Quaternion.identity) as GameObject;
+		headPiece.isUnderground = true;
 		HoleScript HS = go.GetComponent<HoleScript>();
 		HS.next = headPiece;
 		headPiece.next.previous = HS;
@@ -177,6 +178,7 @@ public class Worm : MonoBehaviour
     private void Surface()
     {
 		GameObject go = Instantiate(HoleGO, headPiece.transform.position, Quaternion.identity) as GameObject;
+		headPiece.isUnderground = false;
 		HoleScript HS = go.GetComponent<HoleScript>();
 		HS.next = headPiece;
 		headPiece.next.previous = HS;
