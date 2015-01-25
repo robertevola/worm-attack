@@ -33,7 +33,7 @@ public class MapGenerator : MonoBehaviour {
 					objToSpawn = roadSection;
 				} else if(currentColor == GrassRoadColor) {
 					objToSpawn = grassRoadSection;
-					Debug.Log("DIRTGRASS");
+					//Debug.Log("DIRTGRASS");
 				} else if(currentColor == BuildingColor) {
 					objToSpawn = grassSection;
 					GameObject buildingObj = buildings[Random.Range(0, buildings.Length)];

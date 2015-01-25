@@ -51,6 +51,7 @@ public class WormHead : WormPiece {
 	{
 
 	}
+
 	public void Turn(float value)
 	{
 		transform.Rotate(new Vector3(0, 0, -1), value);
