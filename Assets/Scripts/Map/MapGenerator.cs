@@ -48,6 +48,7 @@ public class MapGenerator : MonoBehaviour {
 					objToSpawn = grassSection;
 					GameObject buildingObj = buildings[Random.Range(0, buildings.Length)];
 					GameObject building = Instantiate(buildingObj, new Vector3(grassSection.transform.localScale.x * i, grassSection.transform.localScale.y * j, 0), Quaternion.identity) as GameObject;
+					building.transform.Rotate(new Vector3(0,0,1), 90 * Random.Range(0, 4));
 					building.transform.parent = transform;
 				} else {
 					objToSpawn = grassSection;
