@@ -99,6 +99,9 @@ public class Human : MonoBehaviour
 
     private void Flee()
     {
+        if (runAwayFrom == null)
+            runAwayFrom = transform;
+
         targetDirection = transform.position - runAwayFrom.position;
         targetDirection.z = 0;
     }
@@ -152,16 +155,40 @@ public class Human : MonoBehaviour
         ChangeState(HumanState.FLEEING);
     }
 
-    void OnTriggerEnter2D(Collider2D c)
+    void OnTriggerStay2D(Collider2D c)
     {
-        Debug.Log("Human Collision");
         if (c.tag == "WormHead")
         {
-            WormSeen(c.transform);
+            if(Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            {
+                c.SendMessageUpwards("AddBodyChunk");
+                Destroy(gameObject);
+            }
+            else if (currentState == HumanState.WANDERING)
+                WormSeen(c.transform);
         }
-        else if(c.tag == "WormBody" || c.tag == "WormTail")
+        else if (c.tag == "WormBody")
         {
-            WormSeen(c.transform.Find("WormHead"));
+            if (Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
+            {
+                Destroy(gameObject);
+            }
+            else if (currentState == HumanState.WANDERING)
+                WormSeen(c.transform.Find("Head"));
+        }
+      
+    }
+
+    void OnCollisionEnter2D(Collision2D c)
+    {
+        Debug.Log("Civilial Eaten");
+        if (c.collider.tag == "WormHead")
+        {
+            SendMessage("PushValueToPlayerScore");
+        }
+        else if (c.collider.tag == "WormBody" || c.collider.tag == "WormTail")
+        {
+
         }
     }
 }
