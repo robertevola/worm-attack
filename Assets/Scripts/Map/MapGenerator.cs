@@ -8,6 +8,7 @@ public class MapGenerator : MonoBehaviour {
 	public GameObject grassSection;
 	public GameObject roadSection;
 	public GameObject grassRoadSection;
+	public GameObject grassRockSection;
 	public GameObject borderSection;
 
 	public GameObject[] buildings;
@@ -16,11 +17,13 @@ public class MapGenerator : MonoBehaviour {
 	Color BuildingColor = new Color(1,0,0,1);
 	Color RoadColor = new Color(0,0,0,1);
 	Color GrassRoadColor = new Color(0,0,1,1);
+	Color GrassRockColor = new Color (0,1,1,1);
 	Color BorderColor = new Color(0,1,0,1);
 
 	void Start() {
 		currentMap = mapList[Random.Range(0, mapList.Length)];
 		BuildMap();
+		Application.targetFrameRate = 60;
 	}
 
 	void BuildMap() {
@@ -37,6 +40,9 @@ public class MapGenerator : MonoBehaviour {
 					//Debug.Log("DIRTGRASS");
 				} else if(currentColor == BorderColor) {
 					objToSpawn = borderSection;
+					//Debug.Log("DIRTGRASS");
+				} else if(currentColor == GrassRockColor) {
+					objToSpawn = grassRockSection;
 					//Debug.Log("DIRTGRASS");
 				} else if(currentColor == BuildingColor) {
 					objToSpawn = grassSection;

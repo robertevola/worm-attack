@@ -5,7 +5,7 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 3
   AndroidProfiler: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   targetGlesGraphics: 1
   targetResolution: 0
@@ -84,7 +84,7 @@ PlayerSettings:
   CreateWallpaper: 0
   APKExpansionFiles: 0
   StripUnusedMeshComponents: 0
-  iPhoneSdkVersion: 989
+  iPhoneSdkVersion: 988
   iPhoneTargetOSVersion: 16
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
