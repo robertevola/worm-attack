@@ -26,6 +26,8 @@ public class InGameGUIHandler : MonoBehaviour
 
     public void RestartScene()
     {
+		TogglePauseButton();
         Application.LoadLevel(Application.loadedLevel);
+
     }
 }

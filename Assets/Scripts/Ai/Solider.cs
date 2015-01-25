@@ -27,8 +27,8 @@ public class Solider : MonoBehaviour
     private bool updateStateBehaviour = true;
     private float updateStateTick = 0.0f;
 
-    public WormHeadAnimation walkAnimator;
-    public WormHeadAnimation shootAnimator;
+    public GameObject walkAnimator;
+	public GameObject shootAnimator;
     public GameObject deathParticleEffect;
 
     // Use this for initialization
@@ -104,8 +104,8 @@ public class Solider : MonoBehaviour
 
     private void ToggleAnimatons(bool isWalking)
     {
-        walkAnimator.ToggleAnimation(isWalking);
-        shootAnimator.ToggleAnimation(!isWalking);
+        walkAnimator.SetActive(isWalking);
+		shootAnimator.SetActive(!isWalking);
     }
 
     private void Wander()

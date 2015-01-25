@@ -36,7 +36,7 @@ public class WormPiece : WormEntity
 				
 				var angle = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
 				transform.rotation = Quaternion.AngleAxis(angle-90, Vector3.forward);
-				Vector3 test = dif.normalized * Mathf.Lerp(0,(dif.magnitude - radius)*Time.deltaTime*Speed,0.6f);
+				Vector3 test = dif.normalized * Mathf.Lerp(0,(dif.magnitude - radius)*Time.deltaTime*Speed,0.65f);
 				transform.Translate(test, Space.World);
 				//transform.Translate(dif.normalized * (dif.magnitude - radius), Space.World);
 			}
