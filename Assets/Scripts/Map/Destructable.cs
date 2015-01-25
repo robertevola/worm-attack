@@ -17,9 +17,10 @@ public class Destructable : MonoBehaviour {
 	
 	}
 	void OnCollisionEnter2D(Collision2D c){
-				if (c.transform.tag != "WormHead" && c.transform.tag != "WormBody") {
-						return;
+		if (c.transform.tag != "WormHead" && c.transform.tag != "WormBody") {
+			return;
 		}
+
 		if (transform.parent.transform.childCount <= 1) {
 			Destroy(transform.parent.gameObject);
 		}

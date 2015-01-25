@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11469076}
   - 61: {fileID: 6191490}
   - 50: {fileID: 5082636}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house1
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473486}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: House1
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 114: {fileID: 11469074}
   - 61: {fileID: 6191492}
   - 50: {fileID: 5082634}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house2
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 114: {fileID: 11469086}
   - 61: {fileID: 6191482}
   - 50: {fileID: 5082644}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house5
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - 114: {fileID: 11469080}
   - 61: {fileID: 6191486}
   - 50: {fileID: 5082640}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house5
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - 114: {fileID: 11469064}
   - 61: {fileID: 6191504}
   - 50: {fileID: 5082628}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house6
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - 114: {fileID: 11469068}
   - 61: {fileID: 6191498}
   - 50: {fileID: 5082626}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house9
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - 114: {fileID: 11469072}
   - 61: {fileID: 6191494}
   - 50: {fileID: 5082632}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house4
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - 114: {fileID: 11469066}
   - 61: {fileID: 6191500}
   - 50: {fileID: 5082624}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house9
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 114: {fileID: 11469084}
   - 61: {fileID: 6191484}
   - 50: {fileID: 5082642}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house8
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - 114: {fileID: 11469082}
   - 61: {fileID: 6191502}
   - 50: {fileID: 5082622}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house7
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - 114: {fileID: 11469070}
   - 61: {fileID: 6191496}
   - 50: {fileID: 5082630}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house7
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   - 114: {fileID: 11469078}
   - 61: {fileID: 6191488}
   - 50: {fileID: 5082638}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: house3
   m_TagString: Building
   m_Icon: {fileID: 0}

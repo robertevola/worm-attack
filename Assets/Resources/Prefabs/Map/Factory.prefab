@@ -11,7 +11,7 @@ GameObject:
   - 61: {fileID: 6141014}
   - 50: {fileID: 5041014}
   - 114: {fileID: 11494630}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Factory
   m_TagString: Factory
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 4: {fileID: 441014}
   - 212: {fileID: 21241014}
   - 95: {fileID: 9541014}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: factory1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   points: 100
   health: 0
   explosion: {fileID: 157402, guid: 4fd19b78ecfb14974bd24a06a444d7d8, type: 2}
+  civilians: []
 --- !u!212 &21241014
 SpriteRenderer:
   m_ObjectHideFlags: 1

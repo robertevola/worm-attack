@@ -71,6 +71,7 @@ MonoBehaviour:
   points: 100
   health: 0
   explosion: {fileID: 183328, guid: 7fa99fb08bf5e4ea8aa8d9218cd6f951, type: 2}
+  civilians: []
 --- !u!212 &21206792
 SpriteRenderer:
   m_ObjectHideFlags: 1

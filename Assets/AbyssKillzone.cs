@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WormMouth : MonoBehaviour {
+public class AbyssKillzone : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -10,13 +10,14 @@ public class WormMouth : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.layer = transform.parent.gameObject.layer;
+	
 	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.tag == "WormBody")
+		if(col.gameObject.tag == "WormHead")
 		{
-			col.gameObject.transform.parent.GetComponent<Worm>().KillWorm();
+			Worm w = col.transform.parent.gameObject.GetComponent<Worm>();
+			w.KillWorm();
 		}
 	}
 }

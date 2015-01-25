@@ -11,7 +11,7 @@ GameObject:
   - 58: {fileID: 5872786}
   - 114: {fileID: 11472786}
   - 212: {fileID: 21272786}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}

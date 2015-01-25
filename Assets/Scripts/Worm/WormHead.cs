@@ -31,6 +31,8 @@ public class WormHead : WormPiece {
 			color.b = Mathf.Lerp(color.b, 0.2f, 0.5f);
 			color.a = Mathf.Lerp(color.a, 0.2f, 0.5f);
 			spriteRenderer.color = color;
+			gameObject.layer = LayerMask.NameToLayer("WormUnderGround");
+
 
 //			Vector3 holeScale = new Vector3();
 //			holeScale.x = Mathf.Lerp(transform.localScale.x, holeEntryScale, 0.75f);
@@ -45,6 +47,7 @@ public class WormHead : WormPiece {
 			color.b = Mathf.Lerp(color.b, 1.0f, 0.5f);
 			color.a = Mathf.Lerp(color.a, 1.0f, 0.5f);
 			spriteRenderer.color = color;
+			gameObject.layer = LayerMask.NameToLayer("WormAboveGround");
 //			Vector3 holeScale = new Vector3();
 //			holeScale.x = Mathf.Lerp(transform.localScale.x, 1.0f, 0.75f);
 //			holeScale.y = Mathf.Lerp(transform.localScale.y, 1.0f, 0.75f);
