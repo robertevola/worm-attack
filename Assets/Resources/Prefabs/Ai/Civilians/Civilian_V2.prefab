@@ -50,22 +50,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &189010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 489010}
-  - 58: {fileID: 5889010}
-  m_Layer: 10
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &489004
 Transform:
   m_ObjectHideFlags: 1
@@ -73,12 +57,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 524.349731, y: 229.541855, z: 0}
+  m_LocalPosition: {x: 525.637268, y: 229.989685, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489008}
   - {fileID: 489006}
-  - {fileID: 489010}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &489006
@@ -105,18 +88,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 489004}
   m_RootOrder: 0
---- !u!4 &489010
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 489004}
-  m_RootOrder: 2
 --- !u!50 &5089010
 Rigidbody2D:
   m_ObjectHideFlags: 1
@@ -132,17 +103,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5889010
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 189010}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: .5
-  m_Center: {x: 0, y: -.0700000003}
 --- !u!60 &6089010
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -174,6 +134,7 @@ MonoBehaviour:
   runAwayFrom: {fileID: 0}
   baseMoveSpeed: {x: 1.5, y: 2}
   targetDirection: {x: 1, y: 0, z: 0}
+  deathParticleEffect: {fileID: 191044, guid: c2cfaad4b9c846543b6df8ffc640177e, type: 2}
 --- !u!114 &11489010
 MonoBehaviour:
   m_ObjectHideFlags: 1

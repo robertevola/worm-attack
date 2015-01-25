@@ -25,6 +25,7 @@ public class Human : MonoBehaviour
     private float updateStateTick = 0.0f;
 
     private WormHeadAnimation basicAnimator;
+    public GameObject deathParticleEffect;
 
 	// Use this for initialization
 	void Start () 
@@ -162,6 +163,8 @@ public class Human : MonoBehaviour
             if(Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
             {
                 c.SendMessageUpwards("AddBodyChunk");
+                deathParticleEffect.transform.position = this.transform.position;
+                Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
             else if (currentState == HumanState.WANDERING)
@@ -171,6 +174,8 @@ public class Human : MonoBehaviour
         {
             if (Vector3.Distance(c.transform.position, transform.position) <= 0.75f)
             {
+                deathParticleEffect.transform.position = this.transform.position;
+                Instantiate(deathParticleEffect);
                 Destroy(gameObject);
             }
             else if (currentState == HumanState.WANDERING)

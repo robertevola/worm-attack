@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &165386
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 465386}
-  - 58: {fileID: 5865386}
-  m_Layer: 10
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &165388
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,18 +50,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &465386
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 465392}
-  m_RootOrder: 2
 --- !u!4 &465388
 Transform:
   m_ObjectHideFlags: 1
@@ -109,12 +81,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 525.419556, y: 230.4935, z: 0}
+  m_LocalPosition: {x: 527.173584, y: 230.362885, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 465388}
   - {fileID: 465390}
-  - {fileID: 465386}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!50 &5065386
@@ -132,17 +103,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5865386
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165386}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: .5
-  m_Center: {x: 0, y: -.0700000003}
 --- !u!60 &6065386
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -194,6 +154,7 @@ MonoBehaviour:
   runAwayFrom: {fileID: 0}
   baseMoveSpeed: {x: 1.5, y: 2}
   targetDirection: {x: 1, y: 0, z: 0}
+  deathParticleEffect: {fileID: 191044, guid: c2cfaad4b9c846543b6df8ffc640177e, type: 2}
 --- !u!212 &21265386
 SpriteRenderer:
   m_ObjectHideFlags: 1
