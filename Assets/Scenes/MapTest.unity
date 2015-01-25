@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 673100915}
   previous: {fileID: 985915709}
-  isUnderground: 1
+  isUnderground: 0
   radius: 1
   Speed: 25
 --- !u!4 &385010686
@@ -3559,7 +3559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 0}
   previous: {fileID: 385010685}
-  isUnderground: 1
+  isUnderground: 0
   radius: .75
   Speed: 25
 --- !u!4 &673100916
@@ -3912,7 +3912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 1655816400}
   previous: {fileID: 2117993532}
-  isUnderground: 1
+  isUnderground: 0
   radius: .899999976
   Speed: 25
 --- !u!4 &877802885
@@ -4330,7 +4330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 385010685}
   previous: {fileID: 1655816400}
-  isUnderground: 1
+  isUnderground: 0
   radius: 1
   Speed: 25
 --- !u!4 &985915710
@@ -4826,6 +4826,10 @@ Prefab:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetRotateWithTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 168360, guid: bfa4c30ce50c32d4499412219b20a083, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfa4c30ce50c32d4499412219b20a083, type: 2}
   m_RootGameObject: {fileID: 979722631}
@@ -5121,31 +5125,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11451292, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451288, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451290, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451286, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451296, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451294, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isUnderground
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11451284, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
       propertyPath: isDigging
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5043136, guid: b2f78371dcf91564580d3a5e72fd9ede, type: 2}
@@ -5421,7 +5425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 985915709}
   previous: {fileID: 877802884}
-  isUnderground: 1
+  isUnderground: 0
   radius: 1
   Speed: 25
 --- !u!4 &1655816401
@@ -5943,7 +5947,7 @@ MonoBehaviour:
   WormBodyPiece: {fileID: 154180, guid: ed4dcf9923ab4324e915833baaf1a658, type: 2}
   HoleGO: {fileID: 172786, guid: a452db87459bfc04b8b3161508c68532, type: 2}
   baseMovementSpeed: {x: 3, y: 2}
-  isDigging: 1
+  isDigging: 0
   startingHealth: 100
   isAlive: 1
   wormyControlsEnabled: 0
@@ -7518,7 +7522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   next: {fileID: 877802884}
   previous: {fileID: 0}
-  isUnderground: 1
+  isUnderground: 0
   radius: 45
   Speed: 2
   HeadSpeed: 2

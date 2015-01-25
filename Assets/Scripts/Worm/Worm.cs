@@ -140,22 +140,22 @@ public class Worm : MonoBehaviour
 
     private void UpdateDigState()
     {
-//        if(!isDigging)
-//        {
-//            if (digButton.IsPressed)
-//            {
-//                isDigging = true;
-//                DigDown();
-//            }
-//        }
-//        else
-//        {
-//            if(!digButton.IsHeldDown)
-//            {
-//                isDigging = false;
-//                Surface();
-//            }
-//        }
+        if(!isDigging)
+        {
+            if (digButton.IsPressed)
+            {
+                isDigging = true;
+                DigDown();
+            }
+        }
+        else
+        {
+            if(!digButton.IsHeldDown)
+            {
+                isDigging = false;
+                Surface();
+            }
+        }
         
     }
 	public void AddBodyChunk()

@@ -9,6 +9,7 @@ public class InGameGUIHandler : MonoBehaviour
 	void Start () 
     {
         pauseMenu = transform.FindChild("PauseMenu").gameObject;
+		TogglePauseButton();
 	}
 	
 	// Update is called once per frame
