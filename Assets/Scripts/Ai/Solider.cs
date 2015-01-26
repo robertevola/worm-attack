@@ -31,6 +31,8 @@ public class Solider : MonoBehaviour
 	public GameObject shootAnimator;
     public GameObject deathParticleEffect;
 
+	public AudioSource gunSource;
+
     // Use this for initialization
     void Start()
     {
@@ -131,6 +133,7 @@ public class Solider : MonoBehaviour
         targetDirection = target.position - transform.position;
         targetDirection.z = 0;
 
+		gunSource.PlayOneShot (gunSource.clip);
         //Debug.DrawRay(transform.position, targetDirection * fightRadius, Color.red, 2.0f);
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, targetDirection, fightRadius,9);
         foreach (RaycastHit2D hit in hits)
